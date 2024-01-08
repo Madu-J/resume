@@ -25,7 +25,7 @@ function repoInformationHTML(repos) {
                     <a href="${repo.html_url}" target="_blank">${repo.name}</a>
                 </li>`;
     });
-    
+
     return `<div class="clearfix repo-list">
                 <p>
                     <strong>Repo List:</strong>
@@ -37,6 +37,8 @@ function repoInformationHTML(repos) {
 }
 
 function fetchGitHubInformation(event) {
+    $("#gh-user-data").html("");
+    $("#gh-repo-data").html("");
 
     var username = $("#gh-username").val();
     if (!username) {
@@ -70,3 +72,5 @@ function fetchGitHubInformation(event) {
             }
         });
 }
+
+$(document).ready(fetchGitHubInformation);
